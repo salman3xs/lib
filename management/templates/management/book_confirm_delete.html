@@ -1,0 +1,8 @@
+{% include 'base.html' %}
+{% block base_block %}
+    <form method="post" >
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ object }}?</p>
+        <input type='submit' class='btn btn-danger' value='Confirm'>
+    </form>
+{% endblock base_block %}

@@ -1,0 +1,13 @@
+{% include 'base.html' %} 
+<div class="centerstage">
+  {% for p in book_list %}
+  <div style="margin: 10px;color: white;" class="book">
+    <h1><a href="{% url 'book_detail' pk=p.pk%}">{{p.title}}</a></h1>
+    <div style="color: white;" class="date">
+      <p>Published: {{p.published_date}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% block base_block %}{% endblock base_block %}

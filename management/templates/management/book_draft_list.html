@@ -1,0 +1,10 @@
+{% include 'base.html' %}
+{% block base_block %}
+{{book_list}}
+    {% for book in books %}
+    <div>
+        <a href="{% url 'book_detail' pk=book.pk%}">{{book.title}}title</a>
+        <p>{{book.text|truncatechars:200}}</p>
+    </div>
+    {% endfor %}
+{% endblock base_block %}

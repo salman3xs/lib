@@ -1,0 +1,28 @@
+{% include 'base.html' %}
+{% block base_block %}
+<h1 style="color:white;margin: 10px;" class="booktitle">Book:{{book.title}}</h1>
+
+<p style="color:white;margin: 10px;" class="bookcontent">By:{{book.author|safe|linebreaksbr}}</p>
+<p style="color:white;margin: 10px;" class="bookcontent">{{book.about|safe|linebreaksbr}}</p>
+
+
+{% if user.is_authenticated %}
+{% if book.published_date %}
+<div class="date bookdate">
+    {{book.published_date}}
+</div>
+{% else %}
+<a style="margin: 10px;" class="btn btn-default" href="{% url 'book_publish' pk=book.pk%}">Publish</a>
+{% endif %}
+<a style="margin: 10px;" class="btn btn-primary" href="{% url 'book_edit' pk=book.pk%}">
+    <span class="glyphicon glyphicon-pencil"></span>
+</a>
+<a style="margin: 10px;" class="btn btn-primary" href="{% url 'book_remove' pk=book.pk%}">
+    <span class="glyphicon glyphicon-remove"></span>
+</a>
+{% endif %}
+
+<hr>
+
+
+{% endblock base_block %}

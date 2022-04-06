@@ -1,0 +1,9 @@
+{% include 'base.html' %}
+{% block base_block %}
+    <h1 style="color: white;">New book</h1>
+    <form class="book-form" method="post" style="color:white;padding: 20px;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock base_block %}
